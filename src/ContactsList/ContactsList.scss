@@ -1,0 +1,27 @@
+@import '../style/variables.scss';
+
+.contacts-list {
+    // width: 100%;
+    padding: 3rem $regular-padding;
+    background-color: rgb(240, 239, 240);
+    
+    &-items {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: -5px;
+
+        .filler {
+            visibility: hidden;
+            margin: 0 5px;
+            height: 0;
+        }
+        
+        // &:after {
+        //     content: "";
+        //     // width: 30%;
+        //     flex: auto;
+        // }
+    }
+}

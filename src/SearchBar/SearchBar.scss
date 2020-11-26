@@ -1,12 +1,13 @@
+@import "../style/mixins.scss";
 @import '../style/variables.scss';
 
 $content-height: 30px;
 
 .search-bar {
     padding: 2rem $regular-padding;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    @include display-flex();
+    @include flex-direction(row);
+    @include justify-content(space-between);
 
     &-title {
         font-size: $content-height;
@@ -27,6 +28,7 @@ $content-height: 30px;
             display: block;
             width: 24rem;
             border-radius: 3px;
+            outline-color: rgba(47, 151, 232, 0.5);
 
             &::-webkit-search-decoration,
             &::-webkit-search-cancel-button,
@@ -47,72 +49,4 @@ $content-height: 30px;
             right: 14px;
         }
     }
-    
-    // &-form {
-    //     position: relative;
-
-    //     &-input {
-    //         // width: 100%;
-    //         outline: 0;
-    //         float: none;
-    //         margin: 5px auto;
-    //         min-width: 150px;
-    //         border: 1px solid #f2f2f2;
-    //         font-size: 14px;
-    //         padding: 15px;
-    //         transition: all 0.25s ease-in-out;
-    //         font-family: proxima-nova,sans-serif;
-    //         background: 0 0;
-    //     }
-
-    //     &-icon {
-    //         vertical-align: middle;
-    //         line-height: 1em;
-    //         margin: 5px 7px 0 0;
-    //         display: inline-block;
-    //         position: absolute;
-    //         right: 15px;
-    //         bottom: 15px;
-    //         width: 15px;
-    //     }
-    // }
-
-    // &-input {
-        // box-shadow: 2px 1px 9px #888884; // Need to be modified
-        // border: 1px solid rgb(208, 208, 208);
-        // padding-left: 10px;
-        // height: $content-height;
-
-
-
-        // color: rgba(var(--i1d,38,38,38),1);
-        // font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-        // font-size: 14px;
-        // line-height: 18px;
-
-        // background: #fafafa;
-        // background: rgba(var(--b3f,250,250,250),1);
-        // border: 1px solid green;
-        // overflow: hidden;
-        // padding: 9px 0 7px 8px;
-
-        // font: 16px arial,sans-serif;
-        // color: rgba(0,0,0,.87);
-        // line-height: 34px;
-        // height: 34px !important;
-
-        // background-color: transparent;
-        // border: none;
-        // margin: 0;
-        // padding: 0;
-        // color: rgba(0,0,0,.87);
-        // word-wrap: break-word;
-        // outline: none;
-        // display: flex;
-        // flex: 100%;
-        // -webkit-tap-highlight-color: transparent;
-        // margin-top: -37px;
-        // height: 34px;
-        // font-size: 16px;
-    // }
 }

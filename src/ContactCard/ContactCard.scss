@@ -1,14 +1,15 @@
+@import "../style/mixins.scss";
+
 .contact-card {
     width: 12rem;
     margin: 5px;
     position: relative;
-    display: flex;
-    flex-direction: column;
+    @include display-flex();
+    @include flex-direction(column);
 
     &-content {
-        flex: 1;
+        @include flex(1);
         background-color: #ffffff;
-        // margin: 1px;
         padding: 5px;
         width: 100%;
         transition: transform .1s;

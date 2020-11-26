@@ -1,5 +1,5 @@
 import React, { useContext }  from 'react';
-import ContactCard from '../ContactCard/ContactCard';
+import ContactCard, { className as contactCardClass } from '../ContactCard/ContactCard';
 import { Context } from '../store/store';
 import './ContactsList.scss';
 
@@ -11,7 +11,7 @@ export default ({ contacts = [] }) => {
         <div className="contacts-list">
             <div className="contacts-list-items">
                 {filteredContacts.map((contact, index) => <ContactCard {...contact} key={index} /> )}
-                {new Array(filteredContacts.length + 10).fill(true).map(() => <div className="contact-card filler"></div>)}
+                {new Array(filteredContacts.length + 10).fill(true).map(() => <div className={`${contactCardClass} filler`}></div>)}
             </div>
         </div>
     );

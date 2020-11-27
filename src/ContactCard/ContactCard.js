@@ -1,25 +1,25 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import ContactIcon from '../ContactIcon/ContactIcon';
 import './ContactCard.scss';
 
 export const className = 'contact-card';
 
-export default props => {    
+const ContactCard = props => {    
     const { company_name, email, icon, job, name, phone, profile_image } = props;
     
     return (
-        <div className={className} tabindex="0">
+        <div className={className} tabIndex="0">
             <div className={`${className}-content`}>
-                <img className={`${className}-content-image`} src={profile_image} />
+                <img className={`${className}-content-image`} src={profile_image} alt={name} />
                 <div className={`${className}-content-icon`} >
-                    <ContactIcon iconUrl={icon} />
+                    <ContactIcon iconUrl={icon} name={name} />
                 </div>
                 <div className={`${className}-content-info `} >
                     <div>
                         <div className={`${className}-content-info-name`} >
                             {name}
                         </div>
-                        <div className={`${className}-content-info-job`} className="contact-card-content-info-job">
+                        <div className={`${className}-content-info-job`}>
                             {job
                                 ? `${job} | @${company_name}`
                                 : `@${company_name}`
@@ -39,3 +39,5 @@ export default props => {
         </div>
     );
 };
+
+export default ContactCard;

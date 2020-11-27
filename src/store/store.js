@@ -33,7 +33,7 @@ export const initialState = {
 
 const reducer = (state, { type = '', payload = {} }) => {
     const action = actions[type];
-    return action && action(state, payload) || state;
+    return action ? action(state, payload) : state;
 }
 
 export const Store = props => {

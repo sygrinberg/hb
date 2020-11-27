@@ -3,7 +3,7 @@ import ContactCard, { className as contactCardClass } from '../ContactCard/Conta
 import { Context } from '../store/store';
 import './ContactsList.scss';
 
-export default ({ contacts = [] }) => {
+const ContactList = ({ contacts = [] }) => {
     const { state } = useContext(Context);
     const { filteredContacts } = state;
 
@@ -11,8 +11,13 @@ export default ({ contacts = [] }) => {
         <div className="contacts-list">
             <div className="contacts-list-items">
                 {filteredContacts.map((contact, index) => <ContactCard {...contact} key={index} /> )}
-                {new Array(filteredContacts.length + 10).fill(true).map(() => <div className={`${contactCardClass} filler`}></div>)}
+                {/* Adding more empty cards for grid alignment */}
+                {new Array(filteredContacts.length + 10).fill(true).map((i, index) => (
+                    <div className={`${contactCardClass} filler`} key={`filler_${index}`}></div>
+                ))}
             </div>
         </div>
     );
 };
+
+export default ContactList;

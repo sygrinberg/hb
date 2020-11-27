@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React from 'react';
 import './App.scss';
 import { Store } from './store/store';
 import Main from './Main/Main';

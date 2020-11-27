@@ -5,14 +5,13 @@ import { Context } from '../store/store';
 import SearchBar from '../SearchBar/SearchBar';
 import ContactsList from '../ContactsList/ContactsList';
 
-export default props => {
+const Main = props => {
     const { state, dispatch } = useContext(Context);
 
     useEffect(() => {
         fetch('/contacts')
           .then(response => response.json())
           .then(data => {
-            console.log(data);
             dispatch({ 
               type: SET_CONTACTS,
               payload: { data }
@@ -25,7 +24,7 @@ export default props => {
               payload: { data: [] }
             })
           });
-    }, []);
+    }, [dispatch]);
 
     const { ready } = state;
 
@@ -38,3 +37,5 @@ export default props => {
       </div>
     );
 }
+
+export default Main;

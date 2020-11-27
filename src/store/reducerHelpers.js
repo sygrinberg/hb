@@ -1,6 +1,7 @@
-export const filterContacts = (searchTerm = '', contacts = []) => (
-    contacts.filter(({ searchString }) => searchString.includes(searchTerm))
-);
+export const filterContacts = (searchTerm = '', contacts = []) => {
+    const lowerSearchTerm = searchTerm.toLocaleLowerCase();
+    return contacts.filter(({ searchString }) => searchString.includes(lowerSearchTerm));
+};
 
 export const prepareContacts = (contacts = []) => {
     return contacts.map(contact => {

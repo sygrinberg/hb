@@ -5,47 +5,87 @@ $content-height: 30px;
 
 .search-bar {
     padding: 2rem $regular-padding;
-    @include display-flex();
-    @include flex-direction(row);
-    @include justify-content(space-between);
 
-    &-title {
-        font-size: $content-height;
-    }
+    &-content {
 
-    &-form {
-        position: relative;
-        &-input {
-            box-sizing: border-box;
-            font-family: "Inter", sans-serif;
-            font-size: 14px;
-            line-height: 1.5;
-            padding: 5px 40px 5px 12px;
-            border: 1px solid #cccccc;
-            color: #cccccc;
-            font-weight: 400;
-            display: block;
-            width: 24rem;
-            border-radius: 3px;
-            outline-color: rgba(47, 151, 232, 0.5);
-
-            &::-webkit-search-decoration,
-            &::-webkit-search-cancel-button,
-            &::-webkit-search-results-button,
-            &::-webkit-search-results-decoration {
-                display: none;
+        @include display-flex();
+        @include flex-direction(row);
+        @include justify-content(space-between);
+        
+        &-title {
+            font-size: $content-height;
+        }
+        
+        &-form {
+            position: relative;
+            display: inline-block;
+            &-input {
+                box-sizing: border-box;
+                font-family: "Inter", sans-serif;
+                font-size: 14px;
+                line-height: 1.5;
+                padding: 5px 40px 5px 12px;
+                border: 1px solid #cccccc;
+                color: #cccccc;
+                font-weight: 400;
+                display: block;
+                width: 24rem;
+                border-radius: 3px;
+                outline-color: rgba(47, 151, 232, 0.5);
+                
+                &::-webkit-search-decoration,
+                &::-webkit-search-cancel-button,
+                &::-webkit-search-results-button,
+                &::-webkit-search-results-decoration {
+                    display: none;
+                }
+            }
+            
+            &:after {
+                position: absolute;
+                content: ' ';
+                background-image: url(../images/search.svg);
+                background-size: 22px 22px;
+                height: 22px;
+                width: 22px;
+                top: 6px;
+                right: 14px;
             }
         }
+    }
+}
 
-        &:after {
-            position: absolute;
-            content: ' ';
-            background-image: url(../images/search.svg);
-            background-size: 22px 22px;
-            height: 22px;
-            width: 22px;
-            top: 6px;
-            right: 14px;
+@media screen and (max-width: 1050px) {
+    .search-bar {
+        &-content {
+            
+            display: block;
+            
+            &-form {
+                margin-top: 10px;
+                &-input {
+                    width: 12rem;
+                }
+                
+                &:after {
+                    right: 10px;
+                }
+            }
         }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .search-bar {
+        @include display-flex();
+        @include flex-direction(row);
+        @include justify-content(center);
+        padding: 2rem $medium-padding;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .search-bar {
+        padding: 2rem $small-padding;
     }
 }

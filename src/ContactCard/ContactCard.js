@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 import ContactIcon from '../ContactIcon/ContactIcon';
 import './ContactCard.scss';
 
@@ -6,9 +6,14 @@ export const className = 'contact-card';
 
 const ContactCard = props => {    
     const { company_name, email, icon, job, name, phone, profile_image } = props;
+
+    const cardRef = useRef(null);
+    const onMouseLeave = useCallback(() => {
+        cardRef.current.blur();
+    }, []);
     
     return (
-        <div className={className} tabIndex="0">
+        <div className={className} tabIndex="0" onMouseLeave={onMouseLeave} ref={cardRef}>
             <div className={`${className}-content`}>
                 <img className={`${className}-content-image`} src={profile_image} alt={name} />
                 <div className={`${className}-content-icon`} >

@@ -14,20 +14,22 @@ const SearchBar = props => {
                 searchTerm: e.target.value
             }
         });
-    }, []);
+    }, [dispatch]);
 
     return (
         <div className="search-bar">
-            <div className="search-bar-title">
-                Contact List
-            </div>
-            <div className="search-bar-form">
-                <input
-                    className="search-bar-form-input" 
-                    placeholder="search..." type="search"
-                    value={searchTerm}
-                    onChange={onChanage}
-                />
+            <div className="search-bar-content">
+                <div className="search-bar-content-title">
+                    Contact List
+                </div>
+                <span className="search-bar-content-form">
+                    <input
+                        className="search-bar-content-form-input" 
+                        placeholder="search..." type="search"
+                        value={searchTerm}
+                        onChange={onChanage}
+                        />
+                </span>
             </div>
         </div>
     );

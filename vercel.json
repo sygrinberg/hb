@@ -1,0 +1,5 @@
+{
+    "rewrites": [
+      { "source": "/contacts", "destination": "https://candidate-test.herokuapp.com" }
+    ]
+}
